@@ -7,11 +7,6 @@ router.get("/characters", async (req, res) => {
   try {
     console.log("Route: /characters");
 
-    const response = await axios.get(
-      `/characters?apiKey=${process.env.API_SECRET_MARVEL}`
-    );
-    console.log(response.data);
-
     let url = `/characters?apiKey=${process.env.API_SECRET_MARVEL}`;
 
     if (req.query.name) {
@@ -23,6 +18,8 @@ router.get("/characters", async (req, res) => {
       const skip = (req.query.page - 1) * 100; // limit <=> between 1 and 100
       url = `${url}&skip=${skip}`;
     }
+
+    const response = await axios.get(url);
 
     res.status(200).json(response.data);
   } catch (error) {
