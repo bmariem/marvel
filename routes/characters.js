@@ -6,15 +6,23 @@ const axios = require("../config/api-axios");
 router.get("/characters", async (req, res) => {
   try {
     console.log("Route: /characters");
-    const skip = (req.query.page - 1) * 100; // limit <=> between 1 and 100
-    // search a character by name <=> req.query.name
-    console.log(req.query.page);
-    console.log(skip);
 
     const response = await axios.get(
-      `/characters?apiKey=${process.env.API_SECRET_MARVEL}&skip=${skip}&name=${req.query.name}`
+      `/characters?apiKey=${process.env.API_SECRET_MARVEL}`
     );
     console.log(response.data);
+
+    let url = `/characters?apiKey=${process.env.API_SECRET_MARVEL}`;
+
+    if (req.query.name) {
+      // search a characters by name <=> req.query.name
+      url = `${url}&name=${req.query.name}`;
+    }
+
+    if (req.query.page) {
+      const skip = (req.query.page - 1) * 100; // limit <=> between 1 and 100
+      url = `${url}&skip=${skip}`;
+    }
 
     res.status(200).json(response.data);
   } catch (error) {
