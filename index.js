@@ -17,10 +17,6 @@ app.use(cors());
 // create a DB
 mongoose.connect(process.env.MONGODB_URI);
 
-app.get("/", async (req, res) => {
-  res.status(200).json("Welcome on Marvel API !");
-});
-
 // import routes
 const comicsRoutes = require("./routes/comics");
 app.use(comicsRoutes);
@@ -34,7 +30,7 @@ app.use(userRoutes);
 // Swagger
 const swaggerUi = require("swagger-ui-express");
 const swaggerFile = require("./swagger_output.json");
-app.use("/doc", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.all("*", (req, res) => {
   res.status(404).json("Page not found !");
