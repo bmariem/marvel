@@ -8,6 +8,8 @@ You can also [click here](https://github.com/bmariem/marvel-front) to go to the 
 
 ✔️ A route of **comics list**, accepting parameters of filters and pagination;<br>
 ✔️ A route of **characters** and **character details**, taking the character id as a parameter;<br>
+✔️ **Authentication system** by using middleware & Mongoose model;<br>
+✔️ Save **favorites comics & characters** in mongodb DataBase for a logged user;<br>
 
 ## 👩‍💻 Technologies and tools used:
 
