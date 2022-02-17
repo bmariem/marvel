@@ -37,7 +37,7 @@ router.get("/character/:characterId", async (req, res) => {
     console.log(req.params.characterId);
 
     const response = await axios.get(
-      `/character/${req.params.characterId}?apiKey=${process.env.API_SECRET_MARVEL}`
+      `/comics/${req.params.characterId}?apiKey=${process.env.API_SECRET_MARVEL}`
     );
 
     res.status(200).json(response.data);
