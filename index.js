@@ -4,6 +4,9 @@ require("dotenv").config();
 const express = require("express");
 const formidable = require("express-formidable");
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("./swagger_output.json");
+
 const mongoose = require("mongoose");
 const cors = require("cors");
 
@@ -28,8 +31,6 @@ const userRoutes = require("./routes/user");
 app.use(userRoutes);
 
 // Swagger
-const swaggerUi = require("swagger-ui-express");
-const swaggerFile = require("./swagger_output.json");
 app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.all("*", (req, res) => {
