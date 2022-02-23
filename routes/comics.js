@@ -5,7 +5,6 @@ const axios = require("../config/api-axios");
 // Get a list of comics
 router.get("/comics", async (req, res) => {
   try {
-    console.log("Route: /comics");
 
     let url = `/comics?apiKey=${process.env.API_SECRET_MARVEL}`;
 
@@ -32,7 +31,6 @@ router.get("/comics", async (req, res) => {
 // Get a comics by id
 router.get("/comic/:id", async (req, res) => {
   try {
-    console.log("Route: /comic/:id");
 
     // search a comic by id
     console.log(req.params.id);
