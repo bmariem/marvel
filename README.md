@@ -22,7 +22,7 @@ You can also [click here](https://github.com/bmariem/marvel-front) to go to the 
 ## ▶️ How to run the project?
 
 Before start, install [Git](https://git-scm.com/) in your machine.
-Moreover, recommend use the [VSCode terminal}(https://code.visualstudio.com/).
+Moreover, recommend use the [VSCode terminal](https://code.visualstudio.com/).
 
 Clone this repository :
 
